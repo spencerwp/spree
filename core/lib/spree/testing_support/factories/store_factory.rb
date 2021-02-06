@@ -8,6 +8,8 @@ FactoryBot.define do
     new_order_notifications_email { 'store-owner@example.com' }
     default_currency       { 'USD' }
     supported_currencies   { 'USD,EUR,GBP' }
+    default_locale         { 'en' }
+    supported_locales      { 'en' }
     facebook               { 'spreecommerce' }
     twitter                { 'spreecommerce' }
     instagram              { 'spreecommerce' }
