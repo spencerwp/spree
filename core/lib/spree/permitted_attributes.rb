@@ -100,7 +100,7 @@ module Spree
                           :meta_description, :default_currency, :mail_from_address,
                           :customer_support_email, :facebook, :twitter, :instagram,
                           :description, :address, :contact_phone,
-                          :default_locale, :default_country_id, :supported_currencies,
+                          :default_locale, :default_country_id, :supported_currencies, :supported_locales
                           :new_order_notifications_email, :mailer_logo, :checkout_zone_id, :seo_robots]
 
     @@store_credit_attributes = %i[amount currency category_id memo]
