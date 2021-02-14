@@ -160,13 +160,19 @@ module Spree
     #
     # @return [Spree::Variant]
     def default_variant
-      @default_variant ||= Rails.cache.fetch(default_variant_cache_key) do
-        if Spree::Config[:track_inventory_levels] && variants.in_stock_or_backorderable.any?
-          variants.in_stock_or_backorderable.first
-        else
-          has_variants? ? variants.first : master
-        end
+      #@default_variant ||= Rails.cache.fetch(default_variant_cache_key) do
+      #  if Spree::Config[:track_inventory_levels] && variants.in_stock_or_backorderable.any?
+      #    variants.in_stock_or_backorderable.first
+      #  else
+      #    has_variants? ? variants.first : master
+      #  end
+      #end
+      if Spree::Config[:track_inventory_levels] && variants.in_stock_or_backorderable.any?
+        @default_variant ||= variants.in_stock_or_backorderable.first
+      else
+        @default_variant ||= has_variants? ? variants.first : master
       end
+      @default_variant
     end
 
     # Returns default Variant ID for Product
